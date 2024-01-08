@@ -1,0 +1,17 @@
+Extension de traduction anglais/français
+
+A quoi ça va ressembler : 
+- Quand on sélectionne un mot, l'extension donne la traduction quand on clique sur l'icone/bouton.
+- La traduction s'affiche dans un popup qui apparait au niveau de l'icone/bouton.
+(- Si possible, avoir un raccourci clavier pour lancer l'extension à la place du bouton).
+
+Definir l'environnement : browser action
+En plus, si possible, en content-script pour remplacer le mot traduit dans la page
+
+Etape 1 : manifest
+Etape 2 : trouver API
+Etape 3 : icone
+Etape 4 : bin, les fonctions JS
+
+
+Travail de groupe : 
