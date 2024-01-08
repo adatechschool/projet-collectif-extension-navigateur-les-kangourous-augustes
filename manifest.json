@@ -1,0 +1,17 @@
+{
+"manifest_version": 3,
+"name": "translate",
+"description": "extension de navigateur pour traduire de l’anglais au français",
+"version": "1.0",
+"permissions": [
+    "activeTab",
+    "storage"
+],
+"action": {
+    "default_icon": "kangou.png",
+    "default_popup": "popup.html"
+},
+"icons": {
+"128": "kangou.png"
+}
+}
