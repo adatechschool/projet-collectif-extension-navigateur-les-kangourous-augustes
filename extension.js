@@ -1,3 +1,1 @@
-chrome.browserAction.onClicked.addListener(function() { 
-    alert('coucou'); 
-  })
+alert("coucou");
