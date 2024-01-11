@@ -1,14 +1,14 @@
 {
 "manifest_version": 3,
-"name": "translate",
-"description": "extension de navigateur pour traduire de l’anglais au français",
+"name": "Cliquette Translate",
+"description": "Extension de traduction en français par un kangourou auguste",
 "version": "1.0",
 "permissions": [
     "activeTab",
     "storage"
 ],
 "action": {
-    "default_icon": "kangou.png",
+    "default_icon": "kangaroo.png",
     "default_popup": "popup.html"
 },
 "content_scripts": [
@@ -22,6 +22,6 @@
 
 },
 "icons": {
-"128": "kangou.png"
+"128": "kangaroo.png"
 }
 }
