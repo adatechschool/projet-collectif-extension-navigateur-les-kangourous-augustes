@@ -26,7 +26,8 @@ const translationResponse = await fetch('https://api-free.deepl.com/v2/translate
 
   console.log(translationData)
 
-  document.getElementById('trad').innerHTML = `Langue détectée : ${language} Traduction : ${translatedResponse}`;
+  document.getElementById('lang').innerHTML = `Langage : ${language}`;
+  document.getElementById('trad').innerHTML = `Traduction : ${translatedResponse}`;
 })();
 
 
