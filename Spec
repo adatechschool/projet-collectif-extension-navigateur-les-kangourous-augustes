@@ -5,13 +5,12 @@ A quoi ça va ressembler :
 - La traduction s'affiche dans un popup qui apparait au niveau de l'icone/bouton.
 (- Si possible, avoir un raccourci clavier pour lancer l'extension à la place du bouton).
 
-Definir l'environnement : browser action
-En plus, si possible, en content-script pour remplacer le mot traduit dans la page
-
 Etape 1 : manifest
 Etape 2 : trouver API
 Etape 3 : icone
 Etape 4 : bin, les fonctions JS
 
-
-Travail de groupe : 
+Idées en vrac : 
+- un bouton html pour demander une clef API
+- migration firefox
+- traduction en kangourou (au nom de l’humour)
