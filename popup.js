@@ -32,7 +32,8 @@
 
   console.log(translationData);
 
+  document.getElementById("lang").innerHTML = `Langage : ${language}`;
   document.getElementById(
     "trad"
-  ).innerHTML = `Langue détectée : ${language} Traduction : ${translatedResponse}`;
+  ).innerHTML = `Traduction : ${translatedResponse}`;
 })();
