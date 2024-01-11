@@ -54,15 +54,9 @@ function changeLangue(lettre) {
   //message précis
   console.log(response);
 
-  chrome.storage.sync.get({langueDeTraduction: 'FR'}, async (items) => {
-    const langueCible = items.langueDeTraduction;
-  //Récupération de la valeur associée à la clé langueDeTraduction, stockée dans chrome.storage
-  //grâce à la fonction restoreOptions dans options.js
-  //Valeur par défaut : FR (français) 
-  console.log(langueCible);
-  
-  
-  //API
+//traduire response avant de l'envoyer
+
+
 const translationResponse = await fetch('https://api-free.deepl.com/v2/translate', {
     method: 'POST',
     headers: {
@@ -71,40 +65,22 @@ const translationResponse = await fetch('https://api-free.deepl.com/v2/translate
     },
     body: JSON.stringify({
       text: [response],
-      //response = envoyée par content-script
-      target_lang: langueCible
-      //langueCible = envoyée par options
+      target_lang: 'FR'
     })
   });
 
-    const translationData = await translationResponse.json();
-    //réponse de l'API en format json, non exploitable en l'état
-    const translatedResponse = translationData.translations[0].text;
-    //extrait du json, mis en tableau à plusieurs entrées : text = la traduction
-    const codeLanguage = translationData.translations[0].detected_source_language;
-    //detected_source_language = langue de la sélection
 
-    console.log(codeLanguage)
-    console.log(translationData)
+  const translationData = await translationResponse.json();
+  const translatedResponse = translationData.translations[0].text;
+  const language = translationData.translations[0].detected_source_language;
 
-    let language = changeLangue(codeLanguage)
-    //Transformation de la langue de la sélection
-    document.getElementById('lang').innerHTML = `<span class = "bold-text">Langue :</span> ${language}`;
-    //Affichage de la langue de la sélection
-    document.getElementById('trad').innerHTML = `<span class = "bold-text">Traduction :</span> ${translatedResponse}`;
-    //Affichage de la traduction
-  })
+  console.log(translationData)
 
-  //Son de l'extension, joué au clic
-  chrome.storage.sync.get({toggle: true}, async (items) => {
-    //Récupération de l'info 'checked' du toggle, envoyée par options
-    if (items.toggle) {   
-      son.play()
-    }
-  })
+  document.getElementById('trad').innerHTML = `Langue détectée : ${language} Traduction : ${translatedResponse}`;
 })();
 //executée immédiatement : ()
 //intérêt de tout mettre dans une fonction (ça fonctionnerai sans) : isole le code et donc les variables
+
 
 
 
