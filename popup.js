@@ -46,6 +46,7 @@ function changeLangue(lettre) {
   });
 
   console.log(response);
+  //traduire response avant de l'envoyer
 
   //traduire response avant de l'envoyer
 
@@ -77,3 +78,6 @@ function changeLangue(lettre) {
     "trad"
   ).innerHTML = `Traduction : ${translatedResponse}`;
 })();
+
+let son = new Audio("cliquetis.flac");
+son.play();
