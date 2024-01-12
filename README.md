@@ -36,13 +36,13 @@ En plus :
 - Pour rigoler, on a mis le son d'un cliquetis de kangourou lors du déclenchement de l'extension.
 - On a nommé l'extension par rapport au cliquetis du koangourou.
 
-  _
+_
 
-  On aimerai :
-  - Migrer l'extension sur Firefox
-  - Dans la gestion de l'extension :
-  - Activer/désactiver le son
-  - Choisir la langue de traduction
+On aimerai :
+- Migrer l'extension sur Firefox
+- Dans la gestion de l'extension :
+- Activer/désactiver le son
+- Choisir la langue de traduction
 
 
 
