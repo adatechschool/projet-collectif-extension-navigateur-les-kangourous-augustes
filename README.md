@@ -5,6 +5,7 @@
 [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-326996.svg)](https://www.javascript.com)
 [![made-with-javascript](https://img.shields.io/badge/Made%20with-JSON-326996.svg)](https://www.javascript.com)
 
+![My Image](kangaroo.png)
 ## Projet d'école Ada Tech School : Extension de navigateur
 
 L'idée de base était de faire une extension de traduction anglais-français. 
