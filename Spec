@@ -12,5 +12,7 @@ Etape 4 : bin, les fonctions JS
 
 Idées en vrac : 
 - un bouton html pour demander une clef API
+- choix avec/sans le son
+- choix de la langue de traduction
 - migration firefox
 - traduction en kangourou (au nom de l’humour)
