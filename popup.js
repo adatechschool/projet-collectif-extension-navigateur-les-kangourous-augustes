@@ -33,7 +33,7 @@ const tableauLangue = {
 }
 
 function changeLangue(lettre) {
-  language = tableauLangue[lettre]
+  let language = tableauLangue[lettre]
   console.log(language)
   return language
 }
