@@ -41,6 +41,8 @@ function changeLangue(lettre) {
 (async () => {
   const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
   const response = await chrome.tabs.sendMessage(tab.id, { action: "declenche" });
+  const langue = await chrome.runtime.sendMessage({ message: "quelle langue" });
+      // communication popup-background pour demander l'info de la langue de traduction
   
   console.log(response);
   //traduire response avant de l'envoyer
@@ -54,7 +56,7 @@ const translationResponse = await fetch('https://api-free.deepl.com/v2/translate
     },
     body: JSON.stringify({
       text: [response],
-      target_lang: 'FR'
+      target_lang: [langue]
     })
   });
 
