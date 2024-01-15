@@ -1,6 +1,14 @@
-function save_options() {
-    let langue= document.getElementById("langue").value;
-    localStorage.setItem("langue", langue)
-}
+var selectedLanguage = document.getElementById("langues").value;
 
-document.getElementById("save").addEventListener("click", save_options);
+chrome.storage.local.set({ "langues": selectedLanguage }, function() {
+    console.log("Langue de traduction enregistrée : " + selectedLanguage);
+  });
+
+  function stockerLangue(langue) {
+    chrome.storage.local.set({ langue: langue }, function() {
+      console.log("Langue de traduction stockée avec succès : " + langue);
+    });
+  }
+  
+  // Exemple d'utilisation de la fonction pour stocker la langue
+  stockerLangue("fr"); // Remplacez "fr" par la langue de votre choix
