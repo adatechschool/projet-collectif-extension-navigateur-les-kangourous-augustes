@@ -5,7 +5,8 @@
 "version": "1.0",
 "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "offscreen"
 ],
 
 "action": {
