@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     
-Quel langage de traduction :
+<b>Langage de traduction :</b>
 <!-- Liste déroulante des langues contenues dans l'API -->
     <select id="langues">
         <option value="BG">Bulgare</option> 
@@ -45,6 +46,15 @@ Quel langage de traduction :
     <!-- Bouton save -->
     <div id="status"></div>
     <!-- Message "langue enregistrée" -->
+
+<br>
+
+<b>Son de l'extension : </b>
+    <label class="switch" id="toggleAudio" onclick="activeSound()">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+
 
     <script src="options.js"></script>
 </body>
