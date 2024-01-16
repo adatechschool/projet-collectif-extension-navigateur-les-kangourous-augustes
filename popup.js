@@ -114,11 +114,19 @@ function changeLangue(lettre) {
 =======
   const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
   //Verifier l'onglet actif de chrome
+  
   const response = await chrome.tabs.sendMessage(tab.id, { action: "declenche" });
   //communication popup -> content-script pour demander l'info du mot sélectionné
   //message précis
-    
   console.log(response);
+
+  chrome.storage.sync.get({langueDeTraduction: 'FR'}, async (items) => {
+    const langueCible = items.langueDeTraduction;
+  //Récupération de la valeur associée à la clé langueDeTraduction, stockée dans chrome.storage
+  //grâce à la fonction restoreOptions dans options.js
+  //Valeur par défaut : FR (français) 
+  console.log(langueCible);
+  
   
   //API
 const translationResponse = await fetch('https://api-free.deepl.com/v2/translate', {
@@ -130,7 +138,7 @@ const translationResponse = await fetch('https://api-free.deepl.com/v2/translate
     body: JSON.stringify({
       text: [response],
       //response = envoyée par content-script
-      target_lang: 'FR'
+      target_lang: langueCible
     })
   });
 >>>>>>> 27ccb5f (enregistrement de la langue dans les options, OK. pas encore retransmis pour la traduction. +commentaires partout.)
@@ -162,6 +170,7 @@ son.play();
   //Affichage de la langue de la sélection
   document.getElementById('trad').innerHTML = `Traduction : ${translatedResponse}`;
   //Affichage de la traduction
+})
 })();
 
 //Son de l'extension, joué au clic
