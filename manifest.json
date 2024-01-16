@@ -1,12 +1,11 @@
 {
 "manifest_version": 3,
 "name": "Cliquette Translate",
-"description": "Extension de traduction en français par un kangourou auguste",
+"description": "Extension de traduction par le kangourou Auguste",
 "version": "1.0",
 "permissions": [
     "activeTab",
-    "storage",
-    "offscreen"
+    "storage"
 ],
 
 "action": {
@@ -20,11 +19,6 @@
         "js": ["content-script.js"]
     }
 ],
-
-"background": {
-    "service_worker": "background.js",
-    "type": "module"
-},
 
 "options_ui": {
     "page": "options.html",

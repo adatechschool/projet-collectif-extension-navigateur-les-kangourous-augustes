@@ -1,5 +1,7 @@
+//Tableau des langues de l'API : permet l'affichage de la langue de la sélection
+//L'API envoie le code à 2 lettres, on passe par une fonction pour afficher la langue en entier
+
 const tableauLangue = {
-  
   "BG" : "Bulgare",
   "DA" : "Danois",
   "CS" : "Tchèque",
@@ -28,26 +30,30 @@ const tableauLangue = {
   "SV" : "Suèdois",
   "TR" : "Turc",
   "UK" : "Ukrainien",
-  "ZH" : "Chinois",
-
+  "ZH" : "Chinois"
 }
 
 function changeLangue(lettre) {
   let language = tableauLangue[lettre]
+  //lettre : colonne de gauche, info de l'API
+  //language : colonne de droite
   console.log(language)
   return language
 }
 
+
+//Appel à l'API
+
 (async () => {
   const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+  //Verifier l'onglet actif de chrome
   const response = await chrome.tabs.sendMessage(tab.id, { action: "declenche" });
-  const langue = await chrome.runtime.sendMessage({ message: "quelle langue" });
-      // communication popup-background pour demander l'info de la langue de traduction
-  
+  //communication popup -> content-script pour demander l'info du mot sélectionné
+  //message précis
+    
   console.log(response);
-  //traduire response avant de l'envoyer
-
   
+  //API
 const translationResponse = await fetch('https://api-free.deepl.com/v2/translate', {
     method: 'POST',
     headers: {
@@ -56,21 +62,29 @@ const translationResponse = await fetch('https://api-free.deepl.com/v2/translate
     },
     body: JSON.stringify({
       text: [response],
-      target_lang: [langue]
+      //response = envoyée par content-script
+      target_lang: 'FR'
     })
   });
 
   const translationData = await translationResponse.json();
+  //traduction en format json, non exploitable en l'état
   const translatedResponse = translationData.translations[0].text;
+  //extrait du json, mis en tableau à plusieurs entrées : text = la traduction
   const codeLanguage = translationData.translations[0].detected_source_language;
+  //detected_source_language = langue de la sélection
 
   console.log(codeLanguage)
   console.log(translationData)
 
   let language = changeLangue(codeLanguage)
+  //Transformation de la langue de la sélection
   document.getElementById('lang').innerHTML = `Langage : ${language}`;
+  //Affichage de la langue de la sélection
   document.getElementById('trad').innerHTML = `Traduction : ${translatedResponse}`;
+  //Affichage de la traduction
 })();
 
+//Son de l'extension, joué au clic
 let son = new Audio("cliquetis.flac")
 son.play()
