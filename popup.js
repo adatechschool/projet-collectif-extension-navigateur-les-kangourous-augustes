@@ -1,6 +1,8 @@
+//Son de l'extension
+let son = new Audio("cliquetis.flac")
+
 //Tableau des langues de l'API : permet l'affichage de la langue de la sélection
 //L'API envoie le code à 2 lettres, on passe par une fonction pour afficher la langue en entier
-
 const tableauLangue = {
   "BG" : "Bulgare",
   "DA" : "Danois",
@@ -43,10 +45,9 @@ function changeLangue(lettre) {
 
 
 //Appel à l'API
-
 (async () => {
   const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
-  //Verifier l'onglet actif de chrome
+  //Verifie l'onglet actif de chrome
   
   const response = await chrome.tabs.sendMessage(tab.id, { action: "declenche" });
   //communication popup -> content-script pour demander l'info du mot sélectionné
@@ -72,28 +73,38 @@ const translationResponse = await fetch('https://api-free.deepl.com/v2/translate
       text: [response],
       //response = envoyée par content-script
       target_lang: langueCible
+      //langueCible = envoyée par options
     })
   });
 
-  const translationData = await translationResponse.json();
-  //traduction en format json, non exploitable en l'état
-  const translatedResponse = translationData.translations[0].text;
-  //extrait du json, mis en tableau à plusieurs entrées : text = la traduction
-  const codeLanguage = translationData.translations[0].detected_source_language;
-  //detected_source_language = langue de la sélection
+    const translationData = await translationResponse.json();
+    //réponse de l'API en format json, non exploitable en l'état
+    const translatedResponse = translationData.translations[0].text;
+    //extrait du json, mis en tableau à plusieurs entrées : text = la traduction
+    const codeLanguage = translationData.translations[0].detected_source_language;
+    //detected_source_language = langue de la sélection
 
-  console.log(codeLanguage)
-  console.log(translationData)
+    console.log(codeLanguage)
+    console.log(translationData)
 
-  let language = changeLangue(codeLanguage)
-  //Transformation de la langue de la sélection
-  document.getElementById('lang').innerHTML = `Langage : ${language}`;
-  //Affichage de la langue de la sélection
-  document.getElementById('trad').innerHTML = `Traduction : ${translatedResponse}`;
-  //Affichage de la traduction
-})
+    let language = changeLangue(codeLanguage)
+    //Transformation de la langue de la sélection
+    document.getElementById('lang').innerHTML = `Langage : ${language}`;
+    //Affichage de la langue de la sélection
+    document.getElementById('trad').innerHTML = `Traduction : ${translatedResponse}`;
+    //Affichage de la traduction
+  })
+
+  //Son de l'extension, joué au clic
+  chrome.storage.sync.get({toggle: true}, async (items) => {
+    //Récupération de l'info 'checked' du toggle, envoyée par options
+    if (items.toggle) {   
+      son.play()
+    }
+  })
 })();
+//executée immédiatement : ()
+//intérêt de tout mettre dans une fonction (ça fonctionnerai sans) : isole le code et donc les variables
 
-//Son de l'extension, joué au clic
-let son = new Audio("cliquetis.flac")
-son.play()
+
+
