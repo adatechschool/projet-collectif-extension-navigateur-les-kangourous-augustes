@@ -89,11 +89,7 @@ function changeLangue(lettre) {
 
     let language = changeLangue(codeLanguage)
     //Transformation de la langue de la sélection
-<<<<<<< Updated upstream
-    document.getElementById('lang').innerHTML = `Langue : ${language}`;
-=======
-    document.getElementById('lang').innerHTML = `<span class = "bold-text">Langage :</span> ${language}`;
->>>>>>> Stashed changes
+    document.getElementById('lang').innerHTML = `<span class = "bold-text">Langue :</span> ${language}`;
     //Affichage de la langue de la sélection
     document.getElementById('trad').innerHTML = `<span class = "bold-text">Traduction :</span> ${translatedResponse}`;
     //Affichage de la traduction
