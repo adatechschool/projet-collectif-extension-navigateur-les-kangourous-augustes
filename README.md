@@ -41,15 +41,14 @@ _
 - Pour rigoler, on a mis le son d'un cliquetis de kangourou lors du déclenchement de l'extension.
 - On a nommé l'extension par rapport au cliquetis du kangourou et au click pour activer l'extension.
 - En option : choisir la langue de traduction.
+- En option : activer/désactiver le son.
 
 _
 
 #### On aimerai :
 - Migrer l'extension sur Firefox.
-- Dans la gestion de l'extension :
-- Activer/désactiver le son.
-
 - Mettre le lien vers l'API pour que chaque utilisateur puisse se faire une clé personnelle.
+- Ne pas afficher de langue dans la popup quand rien n'est sélectionné (ou afficher langue : kangourou, traduction : boing boing !)
 
 
 
