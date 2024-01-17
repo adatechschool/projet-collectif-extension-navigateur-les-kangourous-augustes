@@ -11,7 +11,9 @@
 L'idée de base était de faire une extension de traduction anglais-français. 
 En sélectionnant un mot dans une page web et cliquant sur l'icône épinglée de l'extension, une popup apparaît avec la traduction en français.
 
-![My Image]
+![My Image](Img_options.png)
+
+![My Image](Img_utilisation.png)
 
 #### Au cours du développement de l'extension, on a élargi les possibilités :
 - l'API contient 31 langues : on a laissé la possibilité de traduire toutes ces langues.
@@ -39,15 +41,14 @@ _
 - Pour rigoler, on a mis le son d'un cliquetis de kangourou lors du déclenchement de l'extension.
 - On a nommé l'extension par rapport au cliquetis du kangourou et au click pour activer l'extension.
 - En option : choisir la langue de traduction.
+- En option : activer/désactiver le son.
 
 _
 
 #### On aimerai :
 - Migrer l'extension sur Firefox.
-- Dans la gestion de l'extension :
-- Activer/désactiver le son.
-
 - Mettre le lien vers l'API pour que chaque utilisateur puisse se faire une clé personnelle.
+- Ne pas afficher de langue dans la popup quand rien n'est sélectionné (ou afficher langue : kangourou, traduction : boing boing !)
 
 
 
