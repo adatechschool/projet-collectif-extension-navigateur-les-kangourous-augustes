@@ -89,7 +89,7 @@ function changeLangue(lettre) {
 
     let language = changeLangue(codeLanguage)
     //Transformation de la langue de la sélection
-    document.getElementById('lang').innerHTML = `Langage : ${language}`;
+    document.getElementById('lang').innerHTML = `Langue : ${language}`;
     //Affichage de la langue de la sélection
     document.getElementById('trad').innerHTML = `Traduction : ${translatedResponse}`;
     //Affichage de la traduction
