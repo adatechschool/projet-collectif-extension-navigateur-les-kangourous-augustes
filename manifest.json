@@ -1,7 +1,7 @@
 {
 "manifest_version": 3,
 "name": "Cliquette Translate",
-"description": "Extension de traduction par le kangourou Auguste",
+"description": "Extension de traduction par le kangourou Auguste. (Pour changer la langue de traduction et régler le son, rendez-vous dans les options). Icone créée par Freepik - Flaticon",
 "version": "1.0",
 "permissions": [
     "activeTab",

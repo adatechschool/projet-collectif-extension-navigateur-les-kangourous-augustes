@@ -1,5 +1,5 @@
 /* Bouton toggle option son */
- /* Le switch */
+ /* Switch */
  .switch {
     position: relative;
     display: inline-block;
@@ -7,14 +7,14 @@
     height: 17px;
   }
   
-  /* Hide default HTML checkbox */
+  /* Checkbox */
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
   
-  /* Le slider */
+  /* Slider */
   .slider {
     position: absolute;
     cursor: pointer;
@@ -23,7 +23,6 @@
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
     transition: .4s;
   }
   
@@ -35,9 +34,9 @@
     left: 2px;
     bottom: 2px;
     background-color: white;
-    -webkit-transition: .4s;
     transition: .4s;
   }
+  /* après : pseudo-class*/
   
   input:checked + .slider {
     background-color: #2196F3;
@@ -48,12 +47,11 @@
   }
   
   input:checked + .slider:before {
-    -webkit-transform: translateX(13px);
-    -ms-transform: translateX(13px);
     transform: translateX(13px);
   }
+  /*déplacement du bouton*/
   
-  /* Rounded sliders */
+  /* Rounded slider */
   .slider.round {
     border-radius: 17px;
   }
