@@ -11,7 +11,9 @@
 L'idée de base était de faire une extension de traduction anglais-français. 
 En sélectionnant un mot dans une page web et cliquant sur l'icône épinglée de l'extension, une popup apparaît avec la traduction en français.
 
-![My Image]
+![My Image](Img_options.png)
+
+![My Image](Img_utilisation.png)
 
 #### Au cours du développement de l'extension, on a élargi les possibilités :
 - l'API contient 31 langues : on a laissé la possibilité de traduire toutes ces langues.
