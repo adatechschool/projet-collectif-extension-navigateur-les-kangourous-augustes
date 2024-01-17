@@ -11,7 +11,7 @@
 L'idée de base était de faire une extension de traduction anglais-français. 
 En sélectionnant un mot dans une page web et cliquant sur l'icône épinglée de l'extension, une popup apparaît avec la traduction en français.
 
-_
+![My Image]
 
 #### Au cours du développement de l'extension, on a élargi les possibilités :
 - l'API contient 31 langues : on a laissé la possibilité de traduire toutes ces langues.
@@ -22,8 +22,9 @@ _
 
 #### On a utilisé plusieurs sources : 
 
-Lien doc google : https://developer.chrome.com/docs/extensions/develop/concepts/messaging?hl=fr
-- Utilisation : message-réponse entre popup et content.
+Lien doc google : https://developer.chrome.com/docs/extensions/whats-new?hl=fr
+- message-réponse entre popup et content.
+- chrome.storage
 
 Lien API : https://www.deepl.com/pro-api
 - Utilisation gratuite jusqu'à 500 000 caractères par mois.
