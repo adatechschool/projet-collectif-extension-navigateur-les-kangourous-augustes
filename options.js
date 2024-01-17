@@ -1,7 +1,9 @@
 // Sauvegarder les options dans chrome.storage
 const saveOptions = () => {
-    const langue = document.getElementById('langues').value;
-    //Va chercher l'info dans options.html
+  const langue = document.getElementById('langues').value;
+  const toggle = document.getElementById('toggle').checked;
+  //Va chercher les infos (value de langues et checked de toggle) dans options.html
+  console.log(toggle)
   
     chrome.storage.sync.set(
       //Enregistre l'info dans chrome.storage qu'on a choisi en sync pour harmoniser 
@@ -36,10 +38,11 @@ const saveOptions = () => {
     );
     chrome.storage.sync.get(
       //.get : récupère l'info dans chrome.storage
-      { langueDeTraduction: 'FR' },
-      //langueDeTraduction : clé dans le stockage (chrome.storage)/ 'FR' est l'objet (ou valeur) associé
-      (items) => {
-        document.getElementById('langues').value = items.langueDeTraduction; 
+    { langueDeTraduction: 'FR', toggle: true },
+      //langueDeTraduction : clé dans le stockage (chrome.storage)/ 'FR' est la valeur associée par défaut
+      //toggle : true = checked en valuer par défaut
+    (items) => {
+      document.getElementById('langues').value = items.langueDeTraduction; 
         //récupère dans le tableau 'langues' dans html l'info et la transfère comme valeur de 
         //la clé langueDeTraduction dans le stockage
         // : modifie la valeur stockée.

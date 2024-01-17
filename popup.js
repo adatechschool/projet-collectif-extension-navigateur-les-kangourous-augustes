@@ -1,6 +1,5 @@
 //Tableau des langues de l'API : permet l'affichage de la langue de la sélection
 //L'API envoie le code à 2 lettres, on passe par une fonction pour afficher la langue en entier
-
 const tableauLangue = {
   BG: "Bulgare",
   DA: "Danois",
@@ -42,7 +41,6 @@ function changeLangue(lettre) {
 }
 
 //Appel à l'API
-
 (async () => {
   const [tab] = await chrome.tabs.query({
     active: true,
@@ -73,7 +71,7 @@ function changeLangue(lettre) {
   );
 
   const translationData = await translationResponse.json();
-  //traduction en format json, non exploitable en l'état
+  //réponse de l'API en format json, non exploitable en l'état
   const translatedResponse = translationData.translations[0].text;
   //extrait du json, mis en tableau à plusieurs entrées : text = la traduction
   const codeLanguage = translationData.translations[0].detected_source_language;
@@ -91,6 +89,8 @@ function changeLangue(lettre) {
   ).innerHTML = `Traduction : ${translatedResponse}`;
   //Affichage de la traduction
 })();
+//executée immédiatement : ()
+//intérêt de tout mettre dans une fonction (ça fonctionnerai sans) : isole le code et donc les variables
 
 //Son de l'extension, joué au clic
 let son = new Audio("cliquetis.flac");
