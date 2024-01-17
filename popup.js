@@ -47,16 +47,23 @@ function changeLangue(lettre) {
 //Appel à l'API
 (async () => {
   const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
-  //Verifie l'onglet actif de chrome
-  
+  //Verifier l'onglet actif de chrome
   const response = await chrome.tabs.sendMessage(tab.id, { action: "declenche" });
   //communication popup -> content-script pour demander l'info du mot sélectionné
   //message précis
+    
   console.log(response);
+  
+  //cette ligne de code récupère la valeur associée à la clé 
+  //LangueDeTraduction dans le stockage synchronisé de Chrome
+  //avec une valeur par défaut de 'FR'
 
-//traduire response avant de l'envoyer
+  chrome.storage.sync.get({ langueDeTraduction: 'FR' }, async (items) => {
+    const langueCible = items.langueDeTraduction;
 
+    console.log(langueCible);
 
+  //API
 const translationResponse = await fetch('https://api-free.deepl.com/v2/translate', {
     method: 'POST',
     headers: {
@@ -65,7 +72,9 @@ const translationResponse = await fetch('https://api-free.deepl.com/v2/translate
     },
     body: JSON.stringify({
       text: [response],
-      target_lang: 'FR'
+      //response = envoyée par content-script
+      
+      target_lang: langueCible
     })
   });
 
